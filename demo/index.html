@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background: #fafafa;
+    }
+    .red{
+      background: red;
+    }
+    .green{
+      background: green;
+    }
+    .blue{
+      background: blue;
+    }
+    .box {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="demo" style="height: 100px;"></div>
+
+  <script type="module">
+    import { html, render } from 'lit-html';
+    import '../dist/lay-them.js';
+
+    function incrementColor (color, step){
+        var colorToInt = parseInt(color.substr(1), 16),                     // Convert HEX color to integer
+            nstep = parseInt(step);                                         // Convert step to integer
+        if(!isNaN(colorToInt) && !isNaN(nstep)){                            // Make sure that color has been converted to integer
+            colorToInt += nstep;                                            // Increment integer with step
+            var ncolor = colorToInt.toString(16);                           // Convert back integer to HEX
+            ncolor = '#' + (new Array(7-ncolor.length).join(0)) + ncolor;   // Left pad "0" to make HEX look like a color
+            if(/^#[0-9a-f]{6}$/i.test(ncolor)){                             // Make sure that HEX is a valid color
+                return ncolor;
+            }
+        }
+        return color;
+    };
+
+
+    function getGradientColor(n, step){
+      const c = '#00b8ff';
+      let result = [];
+      for(let i=0; i<=n*step; i+=step){
+        result.push(incrementColor(c, i));
+      }
+
+      return result;
+    }
+
+    const colorsList = getGradientColor(100, 10);
+
+    render(
+      html`
+        <div style="height: 400px;">
+          <lay-them ma="center" ca="center">
+            ${ colorsList.map((color, i)=>{
+            return html`<div style="background-color: ${color}; width:100px; height: 100px; overflow-y: auto; flex: 0 0 auto">item ${i}: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>`;
+          })}
+          </lay-them>  
+        </div>
+        <br>
+        <div>
+          <lay-them in="row" ma="center" ca="stretch">
+            ${ colorsList.map((color, i)=>{
+            return html`<div style="background-color: ${color}; width: 300px; flex: 1 0 auto;">item ${i}: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>`;
+            })}
+          </lay-them>  
+        </div>
+        <br>
+        <div style="height: 200px;">
+          <lay-them in="stack">
+            <div style="width: 100%; height: 100%; background-color: yellow;"></div> 
+            <div style="width: 100px; height: 100px; background-color: green;  position: relative; right : 50px;"></div> 
+            <div style="width: 50px; height: 50px; background-color: red;"></div> 
+          </lay-them>  
+        </div>
+      `,
+      document.querySelector('#demo')
+    );
+  </script>
+</body>
+</html>
