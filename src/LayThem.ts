@@ -1,4 +1,4 @@
-import {BlocBuilder, Bloc} from 'lit-bloc-js';
+import {BlocBuilder, Bloc} from 'bloc-them';
 import { TemplateResult, html } from 'lit-html';
 
 class _LayThemBloc extends Bloc<any>{

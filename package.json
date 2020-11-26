@@ -18,7 +18,7 @@
     "test:watch": "web-test-runner --watch"
   },
   "dependencies": {
-    "lit-bloc-js": "^1.0.8",
+    "bloc-them": "0.0.1",
     "lit-html": "^1.1.2"
   },
   "devDependencies": {
