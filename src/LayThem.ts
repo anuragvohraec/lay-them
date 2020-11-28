@@ -98,3 +98,5 @@ export class LayThem extends BlocBuilder<_LayThemBloc, any> {
     </div>`;
   }
 }
+
+window.customElements.define('lay-them', LayThem);
