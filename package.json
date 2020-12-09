@@ -1,6 +1,6 @@
 {
   "name": "lay-them",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "Webcomponent lay-them following open-wc recommendations",
   "author": "lay-them",
   "license": "MIT",
@@ -18,7 +18,7 @@
     "test:watch": "web-test-runner --watch"
   },
   "dependencies": {
-    "bloc-them": "^2.0.0",
+    "bloc-them": "^3.0.1",
     "lit-html": "^1.1.2"
   },
   "devDependencies": {
