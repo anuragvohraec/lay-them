@@ -1,6 +1,6 @@
 {
   "name": "lay-them",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "description": "Webcomponent lay-them following open-wc recommendations",
   "author": "lay-them",
   "license": "MIT",
@@ -13,7 +13,7 @@
   "scripts": {
     "start": "concurrently --kill-others --names tsc,web-dev-server \"npm run tsc:watch\" \"web-dev-server --app-index demo/index.html --node-resolve --open --watch\"",
     "tsc:watch": "tsc --watch",
-    "prepublish": "tsc",
+    "prepublish": "webpack",
     "test": "tsc && web-test-runner --coverage",
     "test:watch": "web-test-runner --watch"
   },
@@ -22,12 +22,15 @@
     "lit-html": "^1.1.2"
   },
   "devDependencies": {
+    "@open-wc/testing": "^2.0.0",
     "@types/node": "13.11.1",
     "@web/dev-server": "^0.0.12",
-    "typescript": "~4.0.3",
-    "concurrently": "^5.1.0",
-    "tslib": "^1.11.0",
     "@web/test-runner": "^0.7.41",
-    "@open-wc/testing": "^2.0.0"
+    "concurrently": "^5.1.0",
+    "ts-loader": "^8.0.14",
+    "tslib": "^1.11.0",
+    "typescript": "~4.0.3",
+    "webpack": "^5.15.0",
+    "webpack-cli": "^4.4.0"
   }
 }
