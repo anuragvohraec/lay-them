@@ -2,6 +2,7 @@ import {BlocBuilder, Bloc} from 'bloc-them';
 import { TemplateResult, html } from 'lit-html';
 
 class _LayThemBloc extends Bloc<any>{
+  protected _name: string="_LayThemBloc";
   constructor(){
     super(undefined);
   }
@@ -14,7 +15,7 @@ export class LayThem extends BlocBuilder<_LayThemBloc, any> {
   private overflow:string;
 
   constructor(){
-    super(_LayThemBloc, {
+    super("_LayThemBloc", {
       useThisBloc: new _LayThemBloc()
     });
     let _in  = this.getAttribute("in");
