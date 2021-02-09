@@ -1,1 +1,1 @@
-export * from './src/LayThem.js';
+export * from './src/LayThem';
