@@ -11,7 +11,7 @@ export class LayThem extends BlocBuilder<_LayThemBloc, any> {
   private lay_them_in:string;
   private main_axis_alignment: string;
   private cross_axis_alignment: string;
-
+  private overflow:string;
 
   constructor(){
     super(_LayThemBloc, {
@@ -48,6 +48,11 @@ export class LayThem extends BlocBuilder<_LayThemBloc, any> {
     }
     this.cross_axis_alignment = ca;
     
+    this.overflow="auto";
+    let ov = this.getAttribute("overflow");
+    if(ov){
+      this.overflow=ov;
+    }
   }
 
   builder(state: any): TemplateResult {
@@ -56,7 +61,7 @@ export class LayThem extends BlocBuilder<_LayThemBloc, any> {
       .container{
           width: 100%;
           height: 100%;
-        overflow: auto;
+        overflow: ${this.overflow};
       }
       .flex{
           display: flex;

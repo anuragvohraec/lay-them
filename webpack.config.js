@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
     mode:"production",
   entry: {
-      "laythem-min-3.0.5": './src/LayThem.ts'
+      "laythem-min-3.0.6": './src/LayThem.ts'
   },
   devtool: 'inline-source-map',
   module: {
