@@ -1,22 +1,22 @@
 import {BlocBuilder, Bloc} from 'bloc-them';
 import { TemplateResult, html } from 'lit-html';
 
-class _LayThemBloc extends Bloc<any>{
-  protected _name: string="_LayThemBloc";
+class LayThemBloc extends Bloc<any>{
+  protected _name: string="LayThemBloc";
   constructor(){
     super(undefined);
   }
 }
 
-export class LayThem extends BlocBuilder<_LayThemBloc, any> {
+export class LayThem extends BlocBuilder<LayThemBloc, any> {
   private lay_them_in:string;
   private main_axis_alignment: string;
   private cross_axis_alignment: string;
   private overflow:string;
 
   constructor(){
-    super("_LayThemBloc", {
-      useThisBloc: new _LayThemBloc()
+    super("LayThemBloc", {
+      useThisBloc: new LayThemBloc()
     });
     let _in  = this.getAttribute("in");
     if(_in){
